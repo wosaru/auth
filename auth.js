@@ -16,7 +16,7 @@ const AUTH_VERSION = "20260223_2";
 const COOKIE_NAME = "shared_tool_auth";
 
 // ▼ 有効日数
-const EXPIRE_DAYS = 7;
+const EXPIRE_MINUTES = 1;
 
 
 /* ===== 以下は触らない ===== */

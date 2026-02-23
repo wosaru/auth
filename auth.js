@@ -6,17 +6,17 @@
 
 // ▼ パスワード（複数OK）
 const PASSWORDS = [
-  "2222"
+  "1234"
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260223_2";
+const AUTH_VERSION = "v1";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
 
 // ▼ 有効日数
-const EXPIRE_MINUTES = 1;
+const EXPIRE_DAYS = 7;
 
 
 /* ===== 以下は触らない ===== */
@@ -27,9 +27,9 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
-function setCookie(name, value, minutes) {
+function setCookie(name, value, days) {
   const d = new Date();
-  d.setTime(d.getTime() + (minutes*60*1000));
+  d.setTime(d.getTime() + (days*24*60*60*1000));
   document.cookie =
     `${name}=${value}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
 }
@@ -86,7 +86,7 @@ function setCookie(name, value, minutes) {
     const input = document.getElementById("pw").value;
 
     if (PASSWORDS.includes(input)) {
-      setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_MINUTES);
+      setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_DAYS);
       location.reload();
     } else {
       alert("パスワードが違います");

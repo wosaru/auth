@@ -27,9 +27,9 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
-function setCookie(name, value, days) {
+function setCookie(name, value, minutes) {
   const d = new Date();
-  d.setTime(d.getTime() + (days*24*60*60*1000));
+  d.setTime(d.getTime() + (minutes*60*1000));
   document.cookie =
     `${name}=${value}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
 }
@@ -86,7 +86,7 @@ function setCookie(name, value, days) {
     const input = document.getElementById("pw").value;
 
     if (PASSWORDS.includes(input)) {
-      setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_DAYS);
+      setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_MINUTES);
       location.reload();
     } else {
       alert("パスワードが違います");

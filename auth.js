@@ -10,7 +10,7 @@ const PASSWORDS = [
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260504";
+const AUTH_VERSION = "20260503";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
@@ -49,47 +49,91 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
 
     document.body.innerHTML = `
       <style>
-        body{
+
+        html, body{
           margin:0;
-          height:100vh;
+          width:100%;
+          height:100%;
+        }
+
+        body{
           display:flex;
           justify-content:center;
           align-items:center;
           background:#f3f4f6;
           font-family:sans-serif;
+          overflow:hidden;
         }
 
         .box{
           background:white;
-          padding:30px;
-          border-radius:12px;
+          padding:32px;
+          border-radius:14px;
           box-shadow:0 10px 30px rgba(0,0,0,0.15);
           text-align:center;
+          width:min(92vw, 360px);
+          box-sizing:border-box;
+        }
+
+        h2{
+          margin-top:0;
+          margin-bottom:18px;
+          font-size:24px;
         }
 
         input{
-          padding:10px;
-          font-size:16px;
-          width:220px;
+          width:100%;
+          box-sizing:border-box;
+
+          padding:14px;
+
+          /* ★重要：16px以上でスマホ自動ズーム防止 */
+          font-size:20px;
+
+          border:1px solid #ccc;
+          border-radius:8px;
+
           margin-top:10px;
         }
 
         button{
-          margin-top:12px;
-          padding:10px 18px;
-          font-size:16px;
+          width:100%;
+          margin-top:16px;
+
+          padding:14px;
+
+          font-size:18px;
+
+          border:none;
+          border-radius:8px;
+
           cursor:pointer;
+
+          background:#2563eb;
+          color:white;
         }
+
+        button:active{
+          transform:scale(0.98);
+        }
+
       </style>
 
       <div class="box">
+
         <h2>パスワード入力</h2>
 
-        <input id="pw" type="password" placeholder="Password">
+        <input
+          id="pw"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password"
+        >
 
-        <br>
+        <button id="loginBtn">
+          ログイン
+        </button>
 
-        <button id="loginBtn">ログイン</button>
       </div>
     `;
 

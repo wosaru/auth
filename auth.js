@@ -10,7 +10,7 @@ const PASSWORDS = [
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260497";
+const AUTH_VERSION = "20260496";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
@@ -87,27 +87,15 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
     </div>
   `;
 
-    // ログイン画面表示
-    document.documentElement.style.display = "block";
+  window.__authLogin = function () {
+    const input = document.getElementById("pw").value;
 
-    // ボタン処理
-    document.getElementById("loginBtn").onclick = function () {
+    if (PASSWORDS.includes(input)) {
+      setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_DAYS);
+      location.reload();
+    } else {
+      alert("パスワードが違います");
+    }
+  };
 
-      const input = document.getElementById("pw").value;
-
-      if (PASSWORDS.includes(input)) {
-
-        setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_DAYS);
-
-        location.reload();
-
-      } else {
-
-        alert("パスワードが違います");
-
-      }
-    };
-
-  });
-
-}
+})();

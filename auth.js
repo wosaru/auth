@@ -10,7 +10,7 @@ const PASSWORDS = [
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260500";
+const AUTH_VERSION = "20260499";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
@@ -47,7 +47,7 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
   // body完成後にログイン画面へ
   window.addEventListener("DOMContentLoaded", () => {
 
-    document.body.innerHTML = `
+document.body.insertAdjacentHTML("beforeend", `
 <style>
 
   .auth-overlay{
@@ -156,7 +156,7 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
   </div>
 
 </div>
-    `;
+    `);
 
     // ログイン画面表示
     document.documentElement.style.display = "block";

@@ -10,7 +10,7 @@ const PASSWORDS = [
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260509";
+const AUTH_VERSION = "20260508";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";

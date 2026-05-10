@@ -10,7 +10,7 @@ const PASSWORDS = [
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260503";
+const AUTH_VERSION = "20260502";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
@@ -48,76 +48,87 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
   window.addEventListener("DOMContentLoaded", () => {
 
     document.body.innerHTML = `
-      <style>
+<style>
 
-        html, body{
-          margin:0;
-          width:100%;
-          height:100%;
-        }
+  .auth-overlay{
+    position:fixed;
+    inset:0;
 
-        body{
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          background:#f3f4f6;
-          font-family:sans-serif;
-          overflow:hidden;
-        }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-        .box{
-          background:white;
-          padding:32px;
-          border-radius:14px;
-          box-shadow:0 10px 30px rgba(0,0,0,0.15);
-          text-align:center;
-          width:min(92vw, 360px);
-          box-sizing:border-box;
-        }
+    background:#f3f4f6;
 
-        h2{
-          margin-top:0;
-          margin-bottom:18px;
-          font-size:24px;
-        }
+    z-index:999999;
+  }
 
-        input{
-          width:100%;
-          box-sizing:border-box;
+  .auth-box{
+    background:white;
 
-          padding:14px;
+    padding:32px;
 
-          /* ★重要：16px以上でスマホ自動ズーム防止 */
-          font-size:20px;
+    border-radius:14px;
 
-          border:1px solid #ccc;
-          border-radius:8px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
 
-          margin-top:10px;
-        }
+    text-align:center;
 
-        button{
-          width:100%;
-          margin-top:16px;
+    width:min(92vw, 360px);
 
-          padding:14px;
+    box-sizing:border-box;
 
-          font-size:18px;
+    font-family:sans-serif;
+  }
 
-          border:none;
-          border-radius:8px;
+  .auth-title{
+    margin-top:0;
+    margin-bottom:18px;
 
-          cursor:pointer;
+    font-size:24px;
+  }
 
-          background:#2563eb;
-          color:white;
-        }
+  .auth-input{
+    width:100%;
 
-        button:active{
-          transform:scale(0.98);
-        }
+    box-sizing:border-box;
 
-      </style>
+    padding:14px;
+
+    font-size:20px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    margin-top:10px;
+  }
+
+  .auth-button{
+    width:100%;
+
+    margin-top:16px;
+
+    padding:14px;
+
+    font-size:18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#2563eb;
+
+    color:white;
+  }
+
+  .auth-button:active{
+    transform:scale(0.98);
+  }
+
+</style>
 
       <div class="box">
 

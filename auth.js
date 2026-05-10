@@ -130,22 +130,32 @@ if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
 
 </style>
 
-      <div class="box">
+<div class="auth-overlay">
 
-        <h2>パスワード入力</h2>
+  <div class="auth-box">
 
-        <input
-          id="pw"
-          type="password"
-          placeholder="Password"
-          autocomplete="current-password"
-        >
+    <h2 class="auth-title">
+      パスワード入力
+    </h2>
 
-        <button id="loginBtn">
-          ログイン
-        </button>
+    <input
+      id="pw"
+      class="auth-input"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
 
-      </div>
+    <button
+      id="loginBtn"
+      class="auth-button"
+    >
+      ログイン
+    </button>
+
+  </div>
+
+</div>
     `;
 
     // ログイン画面表示

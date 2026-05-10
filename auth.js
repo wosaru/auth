@@ -37,9 +37,15 @@ function setCookie(name, value, days) {
 (function () {
 
   // 認証済みなら終了
-  if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
+if (getCookie(COOKIE_NAME) === AUTH_VERSION) {
+
+    // body表示
+    window.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+    });
+
     return;
-  }
+}
 
   // ログイン画面生成
   document.documentElement.innerHTML = `
@@ -87,6 +93,7 @@ function setCookie(name, value, days) {
 
     if (PASSWORDS.includes(input)) {
       setCookie(COOKIE_NAME, AUTH_VERSION, EXPIRE_DAYS);
+      document.body.style.display = "block";
       location.reload();
     } else {
       alert("パスワードが違います");

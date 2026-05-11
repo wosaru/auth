@@ -83,7 +83,7 @@ document.body.innerHTML = `
   </style>
 
   <div class="box">
-    <h2>パスワード入力</h2>
+    <h2>パスワード入力（メン限記事閲覧用と同様）</h2>
 
     <input
       id="pw"
@@ -95,7 +95,7 @@ document.body.innerHTML = `
     <br>
 
     <button id="loginBtn">
-      ログイン
+      決定
     </button>
   </div>
 `;

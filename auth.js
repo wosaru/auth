@@ -6,11 +6,11 @@
 
 // ▼ パスワード（複数OK）
 const PASSWORDS = [
-  "3873"
+  "5104"
 ];
 
 // ▼ 変更時に数字を変える（全員強制ログアウト）
-const AUTH_VERSION = "20260808";
+const AUTH_VERSION = "20260821";
 
 // ▼ Cookie名（変更不要）
 const COOKIE_NAME = "shared_tool_auth";
